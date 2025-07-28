@@ -67,6 +67,7 @@ export default {
 				'hero-gradient': 'var(--hero-gradient)',
 				'card-gradient': 'var(--card-gradient)',
 				'text-gradient': 'var(--text-gradient)',
+				'gradient-primary': 'var(--hero-gradient)',
 			},
 			boxShadow: {
 				'glow-primary': 'var(--glow-primary)',
