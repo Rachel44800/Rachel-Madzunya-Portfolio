@@ -18,6 +18,12 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'display': ['Fredoka', 'sans-serif'],
+				'heading': ['Comfortaa', 'sans-serif'],
+				'body': ['Nunito', 'sans-serif'],
+				'mono': ['Source Code Pro', 'monospace'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',

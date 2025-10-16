@@ -6,12 +6,12 @@ const SkillsSection = () => {
     {
       title: "Languages & Frameworks",
       icon: "💻",
-      skills: ["Python (Django)", "Java", "JavaScript (ES6+)", "HTML5", "CSS3"]
+      skills: ["C#", "ASP.NET MVC/Web API", "Python", "Java", "JavaScript (ES6+)", "React", "HTML5", "CSS3"]
     },
     {
       title: "Databases",
       icon: "🗄️",
-      skills: ["MySQL", "SQL"]
+      skills: ["SQL Server", "MySQL", "PostgreSQL"]
     },
     {
       title: "Development",
@@ -21,17 +21,17 @@ const SkillsSection = () => {
     {
       title: "Tools & Platforms",
       icon: "⚙️",
-      skills: ["Git", "GitHub", "VS Code", "Postman", "Chrome DevTools", "AWS", "Azure"]
+      skills: ["Git", "GitHub", "Azure DevOps", "IIS", "Windows Server", "Power BI", "SSRS"]
     },
     {
       title: "Methodologies",
       icon: "📋",
-      skills: ["Agile", "SDLC", "ITIL (basic)", "Automation"]
+      skills: ["Agile", "Scrum", "SDLC", "Debugging", "System Documentation"]
     },
     {
       title: "Soft Skills",
       icon: "🌟",
-      skills: ["Problem-solving", "Collaboration", "Adaptability", "Attention to detail"]
+      skills: ["Analytical Thinking", "Problem-Solving", "Attention to Detail", "Team Collaboration", "Adaptability"]
     }
   ];
 
@@ -39,7 +39,7 @@ const SkillsSection = () => {
     <section className="py-20 relative">
       <div className="container mx-auto px-6">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16 bg-text-gradient bg-clip-text text-transparent">
+          <h2 className="text-4xl md:text-5xl font-display text-center mb-16 bg-text-gradient bg-clip-text text-transparent">
             Skills & Expertise
           </h2>
           

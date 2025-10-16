@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600;700&family=Comfortaa:wght@300;400;500;600;700&family=Nunito:wght@300;400;500;600;700;800;900&family=Source+Code+Pro:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -114,6 +116,29 @@ All colors MUST be HSL.
 }
 
 @layer utilities {
+  /* Playful Font Classes */
+  .font-display {
+    font-family: 'Fredoka', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  
+  .font-heading {
+    font-family: 'Comfortaa', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+  
+  .font-body {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 400;
+  }
+  
+  .font-mono {
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 500;
+  }
+  
   .animate-fade-in {
     animation: fadeIn 1s ease-out forwards;
     opacity: 0;

@@ -1,21 +1,29 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon, Download, ExternalLink, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
+  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [currentTime, setCurrentTime] = useState(new Date());
 
   const navItems = [
     { id: "home", label: "Home" },
-    { id: "about", label: "About" },
     { id: "skills", label: "Skills" },
     { id: "projects", label: "Projects" },
     { id: "experience", label: "Experience" },
     { id: "education", label: "Education" },
+    { id: "certifications", label: "Certifications" },
     { id: "contact", label: "Contact" },
+  ];
+
+  const socialLinks = [
+    { name: "GitHub", icon: Github, url: "https://github.com/rachelmadzunya", color: "hover:text-gray-400" },
+    { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/in/rachelmadzunya", color: "hover:text-blue-400" },
+    { name: "Email", icon: Mail, url: "mailto:rachel@example.com", color: "hover:text-red-400" },
   ];
 
   useEffect(() => {
@@ -35,8 +43,16 @@ const Navigation = () => {
       }
     };
 
+    // Update time every minute
+    const timeInterval = setInterval(() => {
+      setCurrentTime(new Date());
+    }, 60000);
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      clearInterval(timeInterval);
+    };
   }, []);
 
   const scrollToSection = (sectionId: string) => {
@@ -44,86 +60,124 @@ const Navigation = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
-    setIsMobileMenuOpen(false);
+    setIsMenuOpen(false);
+  };
+
+  const downloadResume = () => {
+    // You can replace this with actual resume download logic
+    window.open('/resume.pdf', '_blank');
+  };
+
+  const toggleDarkMode = () => {
+    setIsDarkMode(!isDarkMode);
+    // You can implement actual dark mode logic here
   };
 
   return (
-    <nav
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-background/95 backdrop-blur-md border-b border-border/50 shadow-lg"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <button
-            onClick={() => scrollToSection("home")}
-            className="text-xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:scale-105 transition-transform"
-          >
-            Rachel Madzunya
-          </button>
+    <>
+      {/* Name on top left */}
+      <div className="fixed top-6 left-6 z-50">
+        <div className="text-xl font-heading text-primary">
+          Rachel Madzunya
+        </div>
+      </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
+      {/* Hamburger Menu Button - Fixed Position */}
+      <div className="fixed top-6 right-6 z-50">
+        <button
+          className="p-2 transition-all duration-300 hover:opacity-70"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? (
+            <X size={24} className="text-foreground" />
+          ) : (
+            <div className="flex flex-col space-y-3">
+              <div className="w-12 h-0.5 bg-foreground"></div>
+              <div className="w-8 h-0.5 bg-foreground"></div>
+            </div>
+          )}
+        </button>
+      </div>
+
+      {/* Slide-out Menu */}
+      <div
+        className={cn(
+          "fixed top-0 right-0 h-full w-80 bg-gradient-to-b from-background/98 to-background/95 backdrop-blur-xl border-l border-border/50 shadow-2xl z-40 transform transition-transform duration-300 ease-in-out",
+          isMenuOpen ? "translate-x-0" : "translate-x-full"
+        )}
+      >
+
+        <div className="p-4 pt-20">
+          <div className="space-y-2">
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className={cn(
-                  "relative px-3 py-2 text-sm font-medium transition-colors",
-                  "after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5",
-                  "after:bg-gradient-primary after:transform after:scale-x-0 after:transition-transform after:duration-300",
-                  "hover:text-primary hover:after:scale-x-100",
+                  "w-full text-left px-4 py-3 rounded-xl transition-all duration-300 text-base font-medium group relative overflow-hidden",
                   activeSection === item.id
-                    ? "text-primary after:scale-x-100"
-                    : "text-muted-foreground"
+                    ? "bg-gradient-to-r from-primary/15 to-primary/5 text-primary border border-primary/30 shadow-sm"
+                    : "text-muted-foreground hover:bg-gradient-to-r hover:from-accent/50 hover:to-accent/30 hover:text-accent-foreground hover:border hover:border-accent/20 hover:shadow-sm"
                 )}
               >
-                {item.label}
+                {/* Background gradient effect */}
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                
+                {/* Content */}
+                <div className="relative flex items-center">
+                  <div className={cn(
+                    "w-1 h-6 rounded-full mr-3 transition-all duration-300",
+                    activeSection === item.id ? "bg-primary" : "bg-muted-foreground/30 group-hover:bg-accent"
+                  )}></div>
+                  <span className="tracking-wide">{item.label}</span>
+                </div>
+                
+                {/* Active indicator */}
+                {activeSection === item.id && (
+                  <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
+                    <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                  </div>
+                )}
               </button>
             ))}
           </div>
-
-          {/* Mobile Menu Button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </Button>
-        </div>
-
-        {/* Mobile Navigation */}
-        <div
-          className={cn(
-            "md:hidden overflow-hidden transition-all duration-300",
-            isMobileMenuOpen ? "max-h-96 pb-4" : "max-h-0"
-          )}
-        >
-          <div className="flex flex-col space-y-2 pt-4 border-t border-border/50">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className={cn(
-                  "text-left px-4 py-3 rounded-lg transition-colors",
-                  activeSection === item.id
-                    ? "bg-primary/10 text-primary font-medium"
-                    : "text-muted-foreground hover:bg-accent hover:text-accent-foreground"
-                )}
+          
+          {/* Quick Actions */}
+          <div className="mt-6 pt-4 border-t border-border/30">
+            <div className="space-y-2">
+              <Button
+                onClick={downloadResume}
+                className="w-full justify-start bg-gradient-to-r from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 border border-primary/20 text-primary"
+                variant="ghost"
               >
-                {item.label}
-              </button>
-            ))}
+                <Download size={16} className="mr-2" />
+                Download Resume
+              </Button>
+            </div>
+          </div>
+
+
+          {/* Footer */}
+          <div className="mt-6 pt-4 border-t border-border/30">
+            <div className="text-xs text-muted-foreground text-center">
+              <div className="flex items-center justify-center space-x-2">
+                <div className="w-1 h-1 rounded-full bg-primary"></div>
+                <span>Portfolio Navigation</span>
+                <div className="w-1 h-1 rounded-full bg-primary"></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </nav>
+
+      {/* Overlay */}
+      {isMenuOpen && (
+        <div
+          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-30"
+          onClick={() => setIsMenuOpen(false)}
+        />
+      )}
+    </>
   );
 };
 

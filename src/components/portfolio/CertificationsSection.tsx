@@ -1,33 +1,41 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { GraduationCap } from "lucide-react";
+import { Award } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const EducationSection = () => {
-  const educationTimeline = [
+const CertificationsSection = () => {
+  const certificationsTimeline = [
+    {
+      year: "2025",
+      title: "Microsoft AI Fluency Course",
+      issuer: "Microsoft",
+      category: "AI & Machine Learning",
+      icon: "🤖",
+      description: "Comprehensive understanding of AI concepts, machine learning fundamentals, and Microsoft AI services"
+    },
     {
       year: "2023",
-      title: "Bachelor of Information Technology in Business Systems",
-      institution: "IIE Rosebank College",
-      type: "degree",
-      icon: "🎓",
-      description: "Key Modules: Business Analysis, Databases, IT Project Management, Human-Computer Interaction, System Analysis & Design, Software Development"
+      title: "Python Programming",
+      issuer: "SoloLearn",
+      category: "Programming",
+      icon: "🐍",
+      description: "Advanced Python programming concepts including OOP, data structures, and algorithm implementation"
     },
     {
-      year: "2020",
-      title: "Higher Certificate in IT: Support Services",
-      institution: "IIE Rosebank College",
-      type: "certificate",
-      icon: "📜",
-      description: "Key Modules: Web Development, Network Architecture, End User Computing, Help Desk Support"
+      year: "2023",
+      title: "HTML5 & CSS3 Fundamentals",
+      issuer: "SoloLearn",
+      category: "Web Development",
+      icon: "🌐",
+      description: "Modern web development techniques using semantic HTML5 and advanced CSS3 features"
     },
     {
-      year: "2018",
-      title: "Matric (NSC)",
-      institution: "Mbilwi Secondary School",
-      type: "matric",
-      icon: "📚",
-      description: "National Senior Certificate with focus on mathematics and science subjects"
+      year: "2022",
+      title: "SQL Database Introduction",
+      issuer: "SoloLearn",
+      category: "Database",
+      icon: "🗄️",
+      description: "Database design principles, query optimization, and data manipulation using SQL"
     }
   ];
 
@@ -36,7 +44,7 @@ const EducationSection = () => {
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-4xl md:text-5xl font-display text-center mb-16 bg-text-gradient bg-clip-text text-transparent">
-            Education 
+            Certifications 
           </h2>
           
           <div className="relative">
@@ -44,7 +52,7 @@ const EducationSection = () => {
             <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary opacity-30" />
             
             <div className="space-y-12">
-              {educationTimeline.map((item, index) => (
+              {certificationsTimeline.map((item, index) => (
                 <div key={index} className="relative flex items-start gap-8">
                   {/* Timeline Dot */}
                   <div className="relative z-10 flex-shrink-0">
@@ -70,18 +78,17 @@ const EducationSection = () => {
                         </h3>
                         
                         <div className="text-lg text-primary font-semibold mb-3">
-                          {item.institution}
+                          {item.issuer}
                         </div>
                         
                         <div className="flex items-center gap-3 mb-3">
                           <Badge 
                             variant="secondary"
-                            className="bg-secondary/50 text-muted-foreground"
+                            className="bg-primary/10 text-primary border-primary/20"
                           >
-                            {item.type === 'degree' ? 'Bachelor\'s Degree' : 
-                             item.type === 'certificate' ? 'Higher Certificate' : 'Matric'}
+                            {item.category}
                           </Badge>
-                          <GraduationCap className="text-primary" size={20} />
+                          <Award className="text-primary" size={20} />
                         </div>
                         
                         <p className="text-muted-foreground text-sm">
@@ -101,4 +108,4 @@ const EducationSection = () => {
   );
 };
 
-export default EducationSection;
+export default CertificationsSection;
