@@ -21,9 +21,9 @@ const Navigation = () => {
   ];
 
   const socialLinks = [
-    { name: "GitHub", icon: Github, url: "https://github.com/rachelmadzunya", color: "hover:text-gray-400" },
-    { name: "LinkedIn", icon: Linkedin, url: "https://linkedin.com/in/rachelmadzunya", color: "hover:text-blue-400" },
-    { name: "Email", icon: Mail, url: "mailto:rachel@example.com", color: "hover:text-red-400" },
+    { name: "GitHub", icon: Github, url: "https://github.com/Rachel44800", color: "hover:text-gray-400" },
+    { name: "LinkedIn", icon: Linkedin, url: "https://www.linkedin.com/in/rachel-madzunya-aa639725b", color: "hover:text-blue-400" },
+    { name: "Email", icon: Mail, url: "mailto:rachelmadzunya@gmail.com", color: "hover:text-red-400" },
   ];
 
   useEffect(() => {
