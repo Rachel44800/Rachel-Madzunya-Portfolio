@@ -104,7 +104,7 @@ const ContactSection = () => {
                         className="flex-1 border-primary/50 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                         asChild
                       >
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://github.com/Rachel44800" target="_blank" rel="noopener noreferrer">
                           <Github size={20} />
                         </a>
                       </Button>
@@ -114,7 +114,7 @@ const ContactSection = () => {
                         className="flex-1 border-primary/50 hover:border-primary hover:bg-primary/10 transition-all duration-300"
                         asChild
                       >
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/rachel-madzunya-aa639725b" target="_blank" rel="noopener noreferrer">
                           <Linkedin size={20} />
                         </a>
                       </Button>

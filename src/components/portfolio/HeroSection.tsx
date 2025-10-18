@@ -44,7 +44,7 @@ const HeroSection = () => {
               className="hover:bg-primary/10 hover:text-primary hover:shadow-glow-secondary transition-all duration-300"
               asChild
             >
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/Rachel44800" target="_blank" rel="noopener noreferrer">
                 <Github size={24} />
               </a>
             </Button>
@@ -55,7 +55,7 @@ const HeroSection = () => {
               className="hover:bg-primary/10 hover:text-primary hover:shadow-glow-secondary transition-all duration-300"
               asChild
             >
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.linkedin.com/in/rachel-madzunya-aa639725b" target="_blank" rel="noopener noreferrer">
                 <Linkedin size={24} />
               </a>
             </Button>
