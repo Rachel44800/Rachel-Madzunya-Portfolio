@@ -9,6 +9,12 @@ export const useScrollAnimation = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
+          } else {
+            // Remove visible class when element leaves viewport to allow re-triggering
+            // Add a small delay to ensure smooth transition
+            setTimeout(() => {
+              entry.target.classList.remove('visible');
+            }, 100);
           }
         });
       },

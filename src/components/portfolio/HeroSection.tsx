@@ -32,7 +32,7 @@ const HeroSection = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Dynamic Background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/5" />
+      <div className="absolute inset-0 bg-gradient-to-br from-background via-background to-primary/10" />
       
       {/* Animated geometric shapes */}
       <div className="absolute inset-0 overflow-hidden">
@@ -52,8 +52,8 @@ const HeroSection = () => {
 
         {/* Morphing shapes */}
         <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-gradient-to-r from-primary/30 to-accent/20 rounded-full blur-3xl animate-morph-shape" />
-        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-accent/20 to-primary/30 rounded-full blur-3xl animate-morph-shape-delayed" />
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary/10 to-accent/10 rounded-full blur-3xl animate-pulse-slow" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-l from-accent/20 to-secondary/30 rounded-full blur-3xl animate-morph-shape-delayed" />
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl animate-pulse-slow" />
         
           </div>
           
@@ -63,7 +63,7 @@ const HeroSection = () => {
             {/* Left side - Social icons */}
             <div className="lg:col-span-2 lg:order-1 order-2 lg:-ml-16">
               {/* Enhanced Social links - Left side vertical */}
-              <div className={`flex flex-col items-center lg:items-start gap-4 mb-8 transition-all duration-1000 delay-700 ${isLoaded ? 'animate-slide-in-up' : 'opacity-0 translate-y-10'}`}>
+              <div className={`flex flex-col items-center lg:items-start gap-4 mb-8 pt-48 transition-all duration-1000 delay-700 ${isLoaded ? 'animate-slide-in-up' : 'opacity-0 translate-y-10'}`}>
             <Button
               variant="ghost"
               size="lg"
@@ -117,11 +117,11 @@ const HeroSection = () => {
             {/* Center - Main content */}
             <div className="lg:col-span-8 text-center lg:order-2 order-1">
               {/* Main greeting with enhanced animations */}
-              <div className={`mb-8 transition-all duration-1000 ${isLoaded ? 'animate-slide-in-up' : 'opacity-0 translate-y-10'}`}>
-                <h1 className="text-5xl md:text-7xl font-display mb-2 bg-gradient-to-r from-primary via-accent to-primary bg-clip-text text-transparent animate-gradient-shift">
+              <div className={`pt-32 mb-8 transition-all duration-1000 ${isLoaded ? 'animate-slide-in-up' : 'opacity-0 translate-y-10'}`}>
+                <h1 className="text-5xl md:text-7xl font-display mb-2 bg-gradient-to-r from-primary via-accent to-secondary bg-clip-text text-transparent animate-gradient-shift">
                   Hello,
                 </h1>
-                <h2 className="text-4xl md:text-6xl font-display mb-4 bg-gradient-to-r from-accent via-primary to-accent bg-clip-text text-transparent animate-gradient-shift-delayed">
+                <h2 className="text-4xl md:text-6xl font-display mb-4 bg-gradient-to-r from-accent via-primary to-secondary bg-clip-text text-transparent animate-gradient-shift-delayed">
                   I'm Rachel
                 </h2>
                 <div className="text-2xl md:text-3xl font-mono text-primary/80 mb-6 animate-typewriter">
@@ -155,7 +155,7 @@ const HeroSection = () => {
                     
                     {/* Animated dots inside mouse */}
                     <div className="absolute top-1 left-1/2 transform -translate-x-1/2 w-0.5 h-0.5 bg-primary/30 rounded-full animate-ping"></div>
-                    <div className="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-0.5 h-0.5 bg-accent/30 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
+                    <div className="absolute top-1.5 left-1/2 transform -translate-x-1/2 w-0.5 h-0.5 bg-secondary/30 rounded-full animate-ping" style={{animationDelay: '0.5s'}}></div>
                   </div>
                   
                   {/* Enhanced scroll indicator with trail effect */}
