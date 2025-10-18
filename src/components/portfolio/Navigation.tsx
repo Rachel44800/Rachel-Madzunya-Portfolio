@@ -77,25 +77,45 @@ const Navigation = () => {
     <>
       {/* Name on top left */}
       <div className="fixed top-6 left-6 z-50">
-        <div className="text-xl font-heading text-primary">
+        <button
+          onClick={() => scrollToSection('home')}
+          className="text-xl font-heading text-primary hover:text-accent transition-colors duration-300 cursor-pointer"
+        >
           Rachel Madzunya
-        </div>
+        </button>
       </div>
 
-      {/* Hamburger Menu Button - Fixed Position */}
+      {/* Enhanced Hamburger Menu Button - Fixed Position */}
       <div className="fixed top-6 right-6 z-50">
         <button
-          className="p-2 transition-all duration-300 hover:opacity-70"
+          className="group relative p-3 transition-all duration-300 hover:scale-110"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
-          {isMenuOpen ? (
-            <X size={24} className="text-foreground" />
-          ) : (
-            <div className="flex flex-col space-y-3">
-              <div className="w-12 h-0.5 bg-foreground"></div>
-              <div className="w-8 h-0.5 bg-foreground"></div>
-            </div>
-          )}
+          {/* Animated background glow */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-accent/20 rounded-full blur-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 animate-pulse-slow"></div>
+          
+          {/* Menu icon container */}
+          <div className="relative w-8 h-8 flex items-center justify-center">
+            {isMenuOpen ? (
+              <X 
+                size={24} 
+                className="text-foreground group-hover:text-primary transition-colors duration-300 animate-spin-slow" 
+              />
+            ) : (
+              <div className="flex flex-col space-y-2 group-hover:space-y-1 transition-all duration-300">
+                {/* Top line */}
+                <div className="w-8 h-0.5 bg-foreground group-hover:bg-primary transition-all duration-300 group-hover:w-10 group-hover:rotate-12 group-hover:translate-y-1"></div>
+                {/* Middle line */}
+                <div className="w-6 h-0.5 bg-foreground group-hover:bg-accent transition-all duration-300 group-hover:w-8 group-hover:opacity-0"></div>
+                {/* Bottom line */}
+                <div className="w-7 h-0.5 bg-foreground group-hover:bg-primary transition-all duration-300 group-hover:w-9 group-hover:-rotate-12 group-hover:-translate-y-1"></div>
+              </div>
+            )}
+          </div>
+          
+          
+          {/* Pulse ring */}
+          <div className="absolute inset-0 border border-primary/30 rounded-full opacity-0 group-hover:opacity-100 animate-ping"></div>
         </button>
       </div>
 
