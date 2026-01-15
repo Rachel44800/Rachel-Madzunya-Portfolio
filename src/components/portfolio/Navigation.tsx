@@ -65,7 +65,7 @@ const Navigation = () => {
 
   const downloadResume = () => {
     // You can replace this with actual resume download logic
-    window.open('/resume.pdf', '_blank');
+    window.open('/Rachel Madzunya_Full Stack_CV.pdf', '_blank');
   };
 
   const toggleDarkMode = () => {

@@ -23,7 +23,7 @@ const EducationSection = () => {
       title: "Higher Certificate in IT: Support Services",
       institution: "IIE Rosebank College",
       type: "certificate",
-      icon: Award,
+      icon: GraduationCap,
       location: "Johannesburg, South Africa",
       duration: "1 Year",
       gpa: "Merit",
@@ -38,8 +38,6 @@ const EducationSection = () => {
       type: "matric",
       icon: BookOpen,
       location: "Limpopo, South Africa",
-      duration: "3 Years",
-      gpa: "Bachelor Pass",
       description: "National Senior Certificate with focus on mathematics and science subjects",
       highlights: ["Mathematics", "Physical Sciences", "Life Sciences", "English"],
       color: "from-orange-500 to-red-600"
@@ -58,7 +56,7 @@ const EducationSection = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-on-scroll">
             <h2 className="text-4xl md:text-5xl font-display mb-4 bg-text-gradient bg-clip-text text-transparent">
-              Education Journey
+              Education 
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               A comprehensive academic foundation that shaped my technical expertise and problem-solving abilities
