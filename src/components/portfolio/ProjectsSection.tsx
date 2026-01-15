@@ -13,6 +13,7 @@ const ProjectsSection = () => {
       status: "completed",
       type: "Personal Project",
       demoUrl: "#",
+      demoUrl: "https://www.dembebeads.co.za/",
       githubUrl: "https://github.com/Rachel44800"
     },
     {
