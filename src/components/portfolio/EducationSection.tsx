@@ -38,6 +38,8 @@ const EducationSection = () => {
       type: "matric",
       icon: BookOpen,
       location: "Limpopo, South Africa",
+      duration: "1 Year",
+      gpa: "Pass",
       description: "National Senior Certificate with focus on mathematics and science subjects",
       highlights: ["Mathematics", "Physical Sciences", "Life Sciences", "English"],
       color: "from-orange-500 to-red-600"
@@ -136,14 +138,18 @@ const EducationSection = () => {
                               <MapPin size={14} />
                               <span>{item.location}</span>
                             </div>
-                            <div className="flex items-center gap-1">
-                              <Calendar size={14} />
-                              <span>{item.duration}</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <Award size={14} />
-                              <span>{item.gpa}</span>
-                            </div>
+                            {item.duration && (
+                              <div className="flex items-center gap-1">
+                                <Calendar size={14} />
+                                <span>{item.duration}</span>
+                              </div>
+                            )}
+                            {item.gpa && (
+                              <div className="flex items-center gap-1">
+                                <Award size={14} />
+                                <span>{item.gpa}</span>
+                              </div>
+                            )}
                           </div>
                         </CardHeader>
                         
