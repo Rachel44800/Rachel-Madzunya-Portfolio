@@ -12,7 +12,6 @@ const ProjectsSection = () => {
       features: ["Product Listings & Categories", "Shopping Cart", "User Authentication", "Responsive Modern UI"],
       status: "completed",
       type: "Personal Project",
-      demoUrl: "#",
       demoUrl: "https://www.dembebeads.co.za/",
       githubUrl: "https://github.com/Rachel44800"
     },
